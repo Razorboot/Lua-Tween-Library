@@ -70,7 +70,7 @@ newTween.loopCount = 0
 * Practically any property of an Instance is Tweenable. Though there are a few parameters I’ll have to cover before you can start Tweening!
 <br/>
 
-## Step 5.1) tweenObjects:
+### Step 5.1) tweenObjects:
 * When Tweening, you’ll need two tables to represent the Instances you want to Tween.
 * The first Table is called ``tweenObjects``, which includes the *Instance* you want to Tween, and the ``Property`` of that Instance that will be modified.
 ```lua
@@ -95,7 +95,7 @@ local tweenObjects = {
 }
 ```
 
-## Step 5.2) tweenGoals:
+### Step 5.2) tweenGoals:
 * The second Table is called ``tweenGoals``, which includes the beginning and end parameters of your Tween. In this case, it’s the starting and end ``CFrame``.
 * Hint - if you set start to ``nil``, it will just default to the initial ``CFrame`` of the *Part*!
 ```lua
@@ -121,7 +121,7 @@ local tweenGoals = {
 ```
 <br/>
 
-## Step 5.3) Playing your Tween:
+### Step 5.3) Playing your Tween:
 * Finally, you can play the Tween you created using:
 ```lua
 newTween:play(tweenObjects, tweenGoals, "Server")
@@ -136,7 +136,7 @@ spawn(function() -- spawn might be written as Spawn depending on the version of 
 ```
 * Hint - You can also check if a Tween is playing using ``Tween.isPlaying``. More properties can be found inside of the module itself.
 
-## Step 6.) Ending your Tween:
+### Step 6.) Ending your Tween:
 * You can easily stop your Tween any time using:
 ```lua
 newTween:stop(false)
