@@ -9,7 +9,11 @@ If you have any questions or need help, feel free to dm me on Razorboot#5718.
 * In its simplest form, Tweening is an animation, or the process of moving one number from one value to another in different “styles”. A style is how fast this number moves between these two values.
 * This can get more complicated as you introduce different types of values, such as Positions, Rotations, CFrames (Model matrices), and more.
 <br/>
-<br/>
+
+
+
+
+
 
 ## Demos:
 * The source code for these demos are at the bottom of this page:
