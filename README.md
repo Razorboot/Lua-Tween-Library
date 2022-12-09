@@ -1,31 +1,31 @@
 # Lua-Tween-Library
 <br/>
 
-## Notice:
+# Notice:
 Keep in mind that this post is intended for those with at least basic scripting knowledge, though it is also intended to be understood by beginners! 
 If you have any questions or need help, feel free to dm me on Razorboot#5718.
 <br/>
 
-## What Is This?
+# What Is This?
 * This is similar implementation to Roblox's Tween Service with the addition of more aspects of control, and is also compatible with older versions of the Roblox Client. The earliest tested version is as far back as 2014 Studio.
 * I plan to have a general implementation intended for general Lua usage and not Roblox-specific.
 * In its simplest form, Tweening is an animation, or the process of moving one number from one value to another in different “styles”. A style is how fast this number moves between these two values.
 * This can get more complicated as you introduce different types of values, such as Positions, Rotations, CFrames (Model matrices), and more.
 <br/>
 
-## Demos:
+# Demos:
 * The source code for these demos are at the bottom of this page:
 * ![9d8a94944bde4136e7b38b5c51592577](https://user-images.githubusercontent.com/103084464/206599262-f019647f-2de0-4213-82b6-ee932a711e63.gif)
 * ![easeInOutBounce_Dur3_Loop2](https://user-images.githubusercontent.com/103084464/206599271-e4dc5de9-09f8-4958-8ee6-697e34799e4f.gif)
 
 <br/>
 
-## How Do I use it?
-# Step 1.) Download the module:
+# How Do I use it?
+## Step 1.) Download the module:
 * The Roblox variant of the module is titled as ``Tween_Roblox.lua`` in the repo. You can either copy the code into a ``ModuleScript`` located in ``game.ReplicatedStorage``, or download the ``Tween_Place.rbxl`` file and execute it.
 <br/>
 
-# Step 2.) Set up the module:
+## Step 2.) Set up the module:
 * To use the Roblox variant of the module, create a new ``Script`` or ``LocalScript`` and include the module:
 ```lua
 --# Services
@@ -36,14 +36,14 @@ local Tween = require(:WaitForChild("Tween"))
 ```
 <br/>
 
-# Step 3.) Creating a Tween:
+## Step 3.) Creating a Tween:
 * To create a new ``Tween`` instance using the Roblox variant of the module, type:
 ```lua
 local newTween = Tween:new()
 ```
 <br/>
 
-# Step 4.) Setting the properties of your Tween instance:
+## Step 4.) Setting the properties of your Tween instance:
 * There’s tons of properties that your Tween can have, all of them are explained in the Tween
 module!
 ```lua
@@ -66,11 +66,11 @@ newTween.loopCount = 0
 ```
 <br/>
 
-# Step 5.) Tweening an Object:
+## Step 5.) Tweening an Object:
 * Practically any property of an Instance is Tweenable. Though there are a few parameters I’ll have to cover before you can start Tweening!
 <br/>
 
-# Step 5.1) tweenObjects:
+## Step 5.1) tweenObjects:
 * When Tweening, you’ll need two tables to represent the Instances you want to Tween.
 * The first Table is called ``tweenObjects``, which includes the *Instance* you want to Tween, and the ``Property`` of that Instance that will be modified.
 ```lua
@@ -95,7 +95,7 @@ local tweenObjects = {
 }
 ```
 
-# Step 5.2) tweenGoals:
+## Step 5.2) tweenGoals:
 * The second Table is called ``tweenGoals``, which includes the beginning and end parameters of your Tween. In this case, it’s the starting and end ``CFrame``.
 * Hint - if you set start to ``nil``, it will just default to the initial ``CFrame`` of the *Part*!
 ```lua
@@ -121,7 +121,7 @@ local tweenGoals = {
 ```
 <br/>
 
-# Step 5.3) Playing your Tween:
+## Step 5.3) Playing your Tween:
 * Finally, you can play the Tween you created using:
 ```lua
 newTween:play(tweenObjects, tweenGoals, "Server")
@@ -136,7 +136,7 @@ spawn(function() -- spawn might be written as Spawn depending on the version of 
 ```
 * Hint - You can also check if a Tween is playing using ``Tween.isPlaying``. More properties can be found inside of the module itself.
 
-# Step 6.) Ending your Tween:
+## Step 6.) Ending your Tween:
 * You can easily stop your Tween any time using:
 ```lua
 newTween:stop(false)
@@ -156,7 +156,7 @@ newTween.isReversed = false -- Since the tween is repeated, It reversed after th
 ```
 <br/>
 
-# Out Tween in action:
+## Our Tween in action:
 * Here is the completed Tween!
 * ![easeInOutBounce_Dur3_Loop2](https://user-images.githubusercontent.com/103084464/206597757-b2911fbf-202e-411e-9b67-200082bfdc0c.gif)
 * And here is the entire Script for this Tween:
