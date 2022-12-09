@@ -198,7 +198,7 @@ newTween.isReversed = false -- Since the tween is repeated once, It reverses aft
 <br/>
 
 # Other Examples:
-** A Tween that loops one time and manipulates multiple properties.**
+**A Tween that loops one time and manipulates multiple properties.**
 * ![9d8a94944bde4136e7b38b5c51592577](https://user-images.githubusercontent.com/103084464/206599060-435d0e10-4e19-40a4-8f89-2058dca59aca.gif)
 ```lua
 --# Services
