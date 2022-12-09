@@ -8,6 +8,8 @@ If you have any questions or need help, feel free to dm me on Razorboot#5718.
 * I plan to have a general implementation intended for general Lua usage and not Roblox-specific.
 * In its simplest form, Tweening is an animation, or the process of moving one number from one value to another in different “styles”. A style is how fast this number moves between these two values.
 * This can get more complicated as you introduce different types of values, such as Positions, Rotations, CFrames (Model matrices), and more.
+<br/>
+<br/>
 
 ## Demos:
 * The source code for these demos are at the bottom of this page:
@@ -138,7 +140,7 @@ newTween:stop(false)
 newTween:stop(true, 1) -- Wait one second, then snap the property to the end point.
 ```
 
-# Hint - If you have ``isReversed`` set to ``true`` in your Tween and you have a number higher than 0 for ``loopCount``, you may need to reset it's value after the ``Tween:stop()`` function is exececuted to ensure that if the Tween is played again, it reverses properly.
+* int - If you have ``isReversed`` set to ``true`` in your Tween and you have a number higher than 0 for ``loopCount``, you may need to reset it's value after the ``Tween:stop()`` function is exececuted to ensure that if the Tween is played again, it reverses properly.
 ```lua
 newTween:stop(false)
 newTween.isReversed = false -- Since the tween is repeated, It reversed after the second loop, so it must be set back at the end to not start from the opposite position.
