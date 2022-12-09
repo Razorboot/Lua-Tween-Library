@@ -2,6 +2,7 @@
 ##Notice:
 Keep in mind that this post is intended for those with at least basic scripting knowledge, though it is also intended to be understood by beginners! 
 If you have any questions or need help, feel free to dm me on Razorboot#5718.
+<br/>
 
 ## What Is This?
 * This is similar implementation to Roblox's Tween Service with the addition of more aspects of control, and is also compatible with older versions of the Roblox Client. The earliest tested version is as far back as 2014 Studio.
@@ -10,19 +11,16 @@ If you have any questions or need help, feel free to dm me on Razorboot#5718.
 * This can get more complicated as you introduce different types of values, such as Positions, Rotations, CFrames (Model matrices), and more.
 <br/>
 
-
-
-
-
-
 ## Demos:
 * The source code for these demos are at the bottom of this page:
 * ![9d8a94944bde4136e7b38b5c51592577](https://user-images.githubusercontent.com/103084464/206599262-f019647f-2de0-4213-82b6-ee932a711e63.gif)
 * ![easeInOutBounce_Dur3_Loop2](https://user-images.githubusercontent.com/103084464/206599271-e4dc5de9-09f8-4958-8ee6-697e34799e4f.gif)
+<br/>
 
 ## How Do I use it?
 # Step 1.) Download the module:
 * The Roblox variant of the module is titled as ``Tween_Roblox.lua`` in the repo. You can either copy the code into a ``ModuleScript`` located in ``game.ReplicatedStorage``, or download the ``Tween_Place.rbxl`` file and execute it.
+<br/>
 
 # Step 2.) Set up the module:
 * To use the Roblox variant of the module, create a new ``Script`` or ``LocalScript`` and include the module:
@@ -33,12 +31,14 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 --# Include
 local Tween = require(:WaitForChild("Tween"))
 ```
+<br/>
 
 # Step 3.) Creating a Tween:
 * To create a new ``Tween`` instance using the Roblox variant of the module, type:
 ```lua
 local newTween = Tween:new()
 ```
+<br/>
 
 # Step 4.) Setting the properties of your Tween instance:
 * There’s tons of properties that your Tween can have, all of them are explained in the Tween
@@ -53,7 +53,6 @@ loopCount = 0,					-- How many times the Tween is repeated after playing once.
 maxIncrement = nil,				-- (If nil, this property is disabled!) The time of the Tween goes from 0 - 1, this will end the Tween if the current time of the Tween is this value.
 snapAtEnd = true,				-- Whether the Tweenable property will snap to it's goal value once the maxIncrement is met.
 ```
-
 * Here is an example of a few properties you can set for your Tween:
 * Hint - Check https://easings.net/ to see the different easing functions you can use.
 ```lua
@@ -62,9 +61,11 @@ newTween.duration = 3
 newTween.isReversed = false
 newTween.loopCount = 0
 ```
+<br/>
 
 # Step 5.) Tweening an Object:
 * Practically any property of an Instance is Tweenable. Though there are a few parameters I’ll have to cover before you can start Tweening!
+<br/>
 
 # Step 5.1) tweenObjects:
 * When Tweening, you’ll need two tables to represent the Instances you want to Tween.
@@ -115,6 +116,7 @@ local tweenGoals = {
   goal = 1.0},
 }
 ```
+<br/>
 
 # Step 5.3) Playing your Tween:
 * Finally, you can play the Tween you created using:
@@ -144,11 +146,12 @@ newTween:stop(false)
 newTween:stop(true, 1) -- Wait one second, then snap the property to the end point.
 ```
 
-* int - If you have ``isReversed`` set to ``true`` in your Tween and you have a number higher than 0 for ``loopCount``, you may need to reset it's value after the ``Tween:stop()`` function is exececuted to ensure that if the Tween is played again, it reverses properly.
+* Hint - If you have ``isReversed`` set to ``true`` in your Tween and you have a number higher than 0 for ``loopCount``, you may need to reset it's value after the ``Tween:stop()`` function is exececuted to ensure that if the Tween is played again, it reverses properly.
 ```lua
 newTween:stop(false)
 newTween.isReversed = false -- Since the tween is repeated, It reversed after the second loop, so it must be set back at the end to not start from the opposite position.
 ```
+<br/>
 
 # Out Tween in action:
 * Here is the completed Tween!
@@ -187,6 +190,7 @@ local tweenGoals = {
 newTween:play(tweenObjects, tweenGoals, "Server")
 newTween.isReversed = false -- Since the tween is repeated once, It reverses after the second loop, so I just set reversed to false at the end.
 ```
+<br/>
 
 # Other Examples:
 ** A Tween that loops one time and manipulates multiple properties.**
