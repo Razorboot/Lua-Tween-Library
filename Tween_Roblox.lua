@@ -39,7 +39,7 @@ end
 
 
 --# Optimized References
-local Cos, Sin, Pow, Pi, Atan, Atan2, Asin = math.cos, math.sin, math.pow, math.pi, math.atan, math.atan2, math.asin
+local Cos, Sin, Pow, Pi, Atan, Atan2, Asin, Rad = math.cos, math.sin, math.pow, math.pi, math.atan, math.atan2, math.asin, math.rad
 local UDIM2, Vec3, Vec2, CF, CFA = UDim2.new, Vector3.new, Vector2.new, CFrame.new, CFrame.Angles
 
 
@@ -406,8 +406,8 @@ local function tweenObject(object, goalObjects, objectIndex, iEased)
 				iEased
 			)
 		elseif object.property == "Rotation" then
-			local cfAGoal = CFA(math.rad(goalObjects[objectIndex].start.x), math.rad(goalObjects[objectIndex].start.y), math.rad(goalObjects[objectIndex].start.z))
-			local cfBGoal = CFA(math.rad(goalObjects[objectIndex].goal.x), math.rad(goalObjects[objectIndex].goal.y), math.rad(goalObjects[objectIndex].goal.z))
+			local cfAGoal = CFA(Rad(goalObjects[objectIndex].start.x), Rad(goalObjects[objectIndex].start.y), Rad(goalObjects[objectIndex].start.z))
+			local cfBGoal = CFA(Rad(goalObjects[objectIndex].goal.x), Rad(goalObjects[objectIndex].goal.y), Rad(goalObjects[objectIndex].goal.z))
 			
 			object.instance.CFrame = lerp(
 				CF(object.instance.Position.x, object.instance.Position.y, object.instance.Position.z) * cfAGoal, 
