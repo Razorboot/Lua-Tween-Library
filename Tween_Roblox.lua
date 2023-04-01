@@ -40,7 +40,7 @@ end
 
 --# Optimized References
 local Cos, Sin, Pow, Pi, Atan, Atan2, Asin, Rad = math.cos, math.sin, math.pow, math.pi, math.atan, math.atan2, math.asin, math.rad
-local UDIM2, Vec3, Vec2, CF, CFA = UDim2.new, Vector3.new, Vector2.new, CFrame.new, CFrame.Angles
+local UDIM2, Vec3, Vec2, CF, CFA, Col3 = UDim2.new, Vector3.new, Vector2.new, CFrame.new, CFrame.Angles, Color3.new
 
 
 --# Tween/easing functions (DO NOT mess with these unless you know what you're doing)
@@ -299,6 +299,10 @@ local function typeof(object)
 		local success = pcall(function() hasProperty(object, "p") end)
 		if success == true then return "CFrame" end
 		
+		-- Check if the object is a Color3
+		success = pcall(function() hasProperty(object, "r") end)
+		if success == true then return "Color3" end
+		
 		-- Check if the object is a Vector3
 		success = pcall(function() hasProperty(object, "z") end)
 		if success == true then return "Vector3" end
@@ -316,6 +320,11 @@ end
 local function LerpVec2(a, b, dt) -- Move a Vector2 from one point to another by a desired amount.
 	local ax, ay = lerpNum(a.x, b.x, dt), lerpNum(a.y, b.y, dt)
 	return Vec2(ax, ay)
+end
+
+local function LerpColor3(a, b, dt) -- Move a Color3 from one color to another by a desired amount.
+	local ar, ag, ab = lerpNum(a.r, b.r, dt), lerpNum(a.g, b.g, dt), lerpNum(a.b, b.b, dt)
+	return Col3(ar, ag, ab)
 end
 
 local function LerpVec3(a, b, dt) -- Move a Vector3 from one point to another by a desired amount.
@@ -351,6 +360,8 @@ local function lerp(a, b, t)
 		return LerpCF(a, b, t)
 	elseif objType == "number" then
 		return lerpNum(a, b, t)
+	elseif objType == "Color3" then
+		return LerpColor3(a, b, t)
 	elseif objType == "Vector2" then
 		return LerpVec2(a, b, t)
 	elseif objType == "Vector3" then
